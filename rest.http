@@ -1,10 +1,6 @@
 GET http://localhost:3000/users/posts/comments
 
 ### Get all users
-POST http://localhost:3000/users
-Content-Type: application/json
+GET http://localhost:3000/property/1
 
-{
-    "name": "John Doe"
-}
 

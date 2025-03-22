@@ -2,9 +2,10 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { UserResolver } from './graphql/resolvers/userResolver';
-
+import { PropertyModule } from './property/property.module';
 @Module({
-  imports: [GraphQLModule.forRoot<ApolloDriverConfig>(
+  imports: [PropertyModule,
+    GraphQLModule.forRoot<ApolloDriverConfig>(
     {
       driver:ApolloDriver,
       autoSchemaFile: 'src/schema.gql',
