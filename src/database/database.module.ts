@@ -8,11 +8,12 @@ import { TypeOrmModule } from "@nestjs/typeorm";
             type: 'postgres',
             entities: [ __dirname + '/../**/*.entity{.ts,.js}',
                          __dirname + '/**/*.entity{.ts,.js}'
-            ],
+                      ],
             synchronize: true
-        })
+        })                       
     ],
     controllers: [],
     providers: [],
+    exports: [TypeOrmModule] 
 })
 export class DatabaseModule{}
