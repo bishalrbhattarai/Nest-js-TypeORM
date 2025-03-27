@@ -34,7 +34,9 @@ export class PropertyService {
   }
 
   findAll() {
-    return this.propertyRepository.find();
+    return this.propertyRepository.find({
+      relations: ['user']
+    });
   }
 
   findOne(id: number) {
