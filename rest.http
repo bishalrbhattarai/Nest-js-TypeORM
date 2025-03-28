@@ -1,21 +1,7 @@
-POST http://localhost:3000/property
+POST http://localhost:3000/owner
 Content-Type: application/json
 
 {
-  "name": "property2",
-  "description": "property2 description",
-  "price": 2000
-}
-
-### 
-POST http://localhost:3000/property-feature
-Content-Type: application/json
-
-{
-        "bedrooms": 100,
-        "bathrooms": 100,
-        "parkingSpots": 100,
-        "area": 100,
-        "hasBalcony": false,
-        "propertyId":2
+  "name": "John Doe",
+  "email":"johndoe1@gmail.com"
 }

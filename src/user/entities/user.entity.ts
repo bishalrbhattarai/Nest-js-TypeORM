@@ -1,17 +1,18 @@
-import { Property } from "src/property/entities/property.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Field, ID, ObjectType } from "@nestjs/graphql";
+import { UserSetting } from "./user-setting.entity";
 
-@Entity()
-export class User {
-    @PrimaryGeneratedColumn()
-    id: number;
+@ObjectType()
+export class User{
+    @Field(()=>ID)
+    id:number;
 
-    @Column()
-    username: string;
+    @Field()
+    username:string;
+    
+    @Field()
+    displayName?:string;
 
-    @Column()
-    email:string;
+    @Field(()=>UserSetting)
+    userSetting:UserSetting
 
-    @OneToMany(()=>Property,(property)=>property.user,{cascade:true})
-    properties: Array<Property>
 }
