@@ -8,20 +8,19 @@ import { SettingService } from "./setting.service";
 export class SettingResolver{
 
     constructor(private readonly settingService: SettingService){}
- 
         @Mutation(()=> Setting,{name:"createSetting"})
             createSetting(@Args ("id",{type:()=>Int}) id:number, @Args("input") input: CreateSettingDto){
+
                 try{
                     const owner  = this.settingService.findOne(id);
                     if(!owner) throw new GraphQLError("Owner not found",{
                         extensions:{
-                            code:"NOT_FOUND",
-                            error: "Owner not found",
+                            code:"NOT_FOUND",       
+                            error: "Owner not not found",
                         }
                     })
-                    return this.settingService.create(id,input);
-
-                }catch(error){
+                    return this.settingService.create(id,input); 
+                } catch(error){
                     throw new GraphQLError("Error creating setting",{
                         extensions:{
                             code:"INTERNAL_SERVER_ERROR",
@@ -29,6 +28,7 @@ export class SettingResolver{
                         }
                     })
                 }
+
             }
 
 }
