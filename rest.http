@@ -5,3 +5,22 @@ Content-Type: application/json
   "name": "John Doe",
   "email":"johndoe1@gmail.com"
 }
+
+
+###
+
+GET http://localhost:3000/owner
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email":"johndoe1@gmail.com"
+}
+
+###
+GET  http://localhost:3000/setting
+Content-Type: application/json
+
+{
+  "notification":true
+}

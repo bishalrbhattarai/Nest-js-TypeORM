@@ -2,6 +2,20 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Setting {
+  id: Int!
+  notification: Boolean!
+  darkMode: Boolean!
+  owner: Owner!
+}
+
+type Owner {
+  id: Int!
+  name: String!
+  email: String!
+  setting: Setting
+}
+
 type UserSetting {
   id: Int!
   userId: Int!
@@ -9,23 +23,22 @@ type UserSetting {
   notificationsEnabled: Boolean!
 }
 
-type User {
-  id: ID!
-  username: String!
-  displayName: String!
-  userSetting: UserSetting!
-}
-
 type Query {
-  users: [User!]
-  user(id: Int!): User
+  owners: [Owner!]
+  owner(id: Int!): Owner
 }
 
 type Mutation {
-  createUser(input: CreateUserInput): User
+  createOwner(input: CreateOwnerDto): Owner!
+  createSetting(id: Int!, input: CreateSettingDto!): Setting!
 }
 
-input CreateUserInput {
-  username: String!
-  displayName: String!
+input CreateOwnerDto {
+  name: String!
+  email: String!
+}
+
+input CreateSettingDto {
+  notification: Boolean
+  darkMode: Boolean
 }
