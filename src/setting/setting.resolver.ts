@@ -16,12 +16,12 @@ export class SettingResolver{
                     if(!owner) throw new GraphQLError("Owner not found",{
                         extensions:{
                             code:"NOT_FOUND",       
-                            error: "Owner not not found",
+                            error: "Owner not not not found",
                         }
                     })
                     return this.settingService.create(id,input); 
                 } catch(error){
-                    throw new GraphQLError("Error creating setting",{
+                    throw new GraphQLError("Error creating setting",{   
                         extensions:{
                             code:"INTERNAL_SERVER_ERROR",
                             error: error?.message || "Unknown error",
