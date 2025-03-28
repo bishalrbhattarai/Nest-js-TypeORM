@@ -24,7 +24,7 @@ export class SettingResolver{
                     throw new GraphQLError("Error creating setting",{   
                         extensions:{
                             code:"INTERNAL_SERVER_ERROR",
-                            error: error?.message || "Unknown error",
+                            error: error?.message || " new Unknown error",
                         }
                     })
                 }
